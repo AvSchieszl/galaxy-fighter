@@ -1,0 +1,191 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5291006277073331053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5291006277073331055}
+  - component: {fileID: 5291006277073331054}
+  - component: {fileID: 6061717396836603248}
+  - component: {fileID: 1970215154725917371}
+  - component: {fileID: 675658497864870278}
+  - component: {fileID: -3256691369266048795}
+  - component: {fileID: 5614496918015167941}
+  m_Layer: 9
+  m_Name: EnemyOrange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5291006277073331055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5291006277073331053}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &5291006277073331054
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5291006277073331053}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 891c15f9f008dc74484e629ebc7b6890, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.93, y: 0.84}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &6061717396836603248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5291006277073331053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5bedefd5aa52a548978bd449a2336cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveConfig: {fileID: 11400000, guid: 51998873caee2674693dce1b5f42b8ea, type: 2}
+--- !u!114 &1970215154725917371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5291006277073331053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc7e48fe368897c48a25e7a4d27aae7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  scorePoints: 15
+  projectileSpeed: 10
+  minTimeBetweenShots: 1
+  maxTimeBetweenShots: 4
+  enemyExplosionFX: {fileID: 5981305542191339731, guid: 3b059bba2d6054848b1760d963b10805,
+    type: 3}
+  hitFX: {fileID: 5981305542191339731, guid: 80f385998a4111a4b828ab18cb2ded6f, type: 3}
+  durationOfExplosion: 1
+  enemyLaserPrefab: {fileID: 3516322986144453709, guid: 66edbdb1bd8759a40b868b20f701998e,
+    type: 3}
+  shootingSounds:
+  - {fileID: 8300000, guid: 2f773267782852d4aa5dc130e1d15f69, type: 3}
+  - {fileID: 8300000, guid: b41f4d06f95e4d84aba43252b67cd74c, type: 3}
+  - {fileID: 8300000, guid: 5f211d8316e33fa4a99349d342ed1dad, type: 3}
+  - {fileID: 8300000, guid: fea9b6ef49517f94bbc4a8037ac2e07d, type: 3}
+  - {fileID: 8300000, guid: 768be2fa287eef6429f89a41de16f8b3, type: 3}
+  - {fileID: 8300000, guid: 27a491fb2c4e66943805b56739997189, type: 3}
+  - {fileID: 8300000, guid: 7c8927301082d3946933e99dab2e6fda, type: 3}
+  - {fileID: 8300000, guid: 7e9464db7b9ac3c4ba90689be747fb76, type: 3}
+  - {fileID: 8300000, guid: 536aab371b49ce0469332c0a1b5e34c6, type: 3}
+  - {fileID: 8300000, guid: 70c2be7eb39ba9243b7e62d5d8da5c42, type: 3}
+  shootingSoundVolume: 0.2
+  healthPickup: {fileID: 220044566724443899, guid: 8988ad4972846434dbbb455bd91949d9,
+    type: 3}
+  minNumberToCalculateSpawnChance: 1
+  maxNumberToCalculateSpawnChance: 25
+  pickUpFallSpeed: 5
+--- !u!58 &675658497864870278
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5291006277073331053}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.42
+--- !u!50 &-3256691369266048795
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5291006277073331053}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &5614496918015167941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5291006277073331053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99dc1b8782928ad4383f189794909cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
