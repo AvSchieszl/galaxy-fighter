@@ -49,17 +49,18 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        MouseMove();
         Shoot();
     }
 
     private void Shoot()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire1") || Input.GetButtonDown("Fire2"))
         {
             firingCoroutine = StartCoroutine(FireContinuosly());
             
         }
-        else if (Input.GetButtonUp("Fire1"))
+        else if (Input.GetButtonUp("Fire1") || Input.GetButtonUp("Fire2"))
         {
             StopCoroutine(firingCoroutine);
         }
@@ -88,6 +89,13 @@ public class Player : MonoBehaviour
         float newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
         float newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
         transform.position = new Vector2(newXPos, newYPos);
+    }
+
+    private void MouseMove()
+    {
+        Vector2 mousePos = Input.mousePosition;
+        Vector2 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 1));
+        transform.position = worldPos;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
