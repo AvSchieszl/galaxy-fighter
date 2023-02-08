@@ -6,6 +6,20 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField] float gameOverLoadDelay = 1.5f;
+
+    public static bool keyboardControlOn;
+
+    public void PickKeyboardControl()
+    {
+        keyboardControlOn = true;
+        LoadGame();
+    }
+    public void PickMouseControl()
+    {
+        keyboardControlOn = false;
+        LoadGame();
+    }
+
     public void LoadStartMenu()
     {
         SceneManager.LoadScene(0);
@@ -30,5 +44,22 @@ public class LevelLoader : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+        private void Awake()
+    {
+        SetUpSingleton();
+    }
+
+    private void SetUpSingleton()
+    {
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }

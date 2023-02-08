@@ -31,10 +31,13 @@ public class Player : MonoBehaviour
 
     HealthDisplay healthDisplay;
 
+    //private LevelLoader levelLoader;
+
     void Start()
     {
         SetUpMoveBoundaries();
         healthDisplay = FindObjectOfType<HealthDisplay>();
+    //    levelLoader = FindObjectOfType<LevelLoader>();
     }
 
     private void SetUpMoveBoundaries()
@@ -49,18 +52,23 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
-        MouseMove();
         Shoot();
     }
 
     private void Shoot()
     {
-        if(Input.GetButtonDown("Fire1") || Input.GetButtonDown("Fire2"))
+        string fireButton;
+        if(LevelLoader.keyboardControlOn)
+            fireButton = "Fire1"; //Keyboard control
+        else
+            fireButton = "Fire2"; //Mouse/Touch control
+
+        if(Input.GetButtonDown(fireButton))
         {
             firingCoroutine = StartCoroutine(FireContinuosly());
             
         }
-        else if (Input.GetButtonUp("Fire1") || Input.GetButtonUp("Fire2"))
+        else if (Input.GetButtonUp(fireButton))
         {
             StopCoroutine(firingCoroutine);
         }
@@ -83,19 +91,22 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        float deltaX = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
-        float deltaY = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
+        if(LevelLoader.keyboardControlOn) //Keyboard control
+        {
+            float deltaX = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
+            float deltaY = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
 
-        float newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
-        float newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
-        transform.position = new Vector2(newXPos, newYPos);
-    }
-
-    private void MouseMove()
-    {
-        Vector2 mousePos = Input.mousePosition;
-        Vector2 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 1));
-        transform.position = worldPos;
+            float newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
+            float newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
+            transform.position = new Vector2(newXPos, newYPos);
+        }
+        else //Mouse/Touch control
+        {
+            Vector2 mousePos = Input.mousePosition;
+            Vector2 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y + 100f, 1f));
+            worldPos = new Vector2(Mathf.Clamp(worldPos.x, xMin, xMax), Mathf.Clamp(worldPos.y, yMin, yMax));
+            transform.position = worldPos;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
